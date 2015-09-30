@@ -1,0 +1,9 @@
+{
+  "name": "SmallFixes",
+  "version": "0.0.1",
+  "title": "SmallFixes",
+  "author": "Choumiko",
+  "homepage": "",
+  "dependencies": ["base >= 0.12.6"],
+  "description": "Small non game changing/breaking fixes"
+}
