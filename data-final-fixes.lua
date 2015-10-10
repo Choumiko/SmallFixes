@@ -1,11 +1,31 @@
 require "config"
+require "util"
 
-if config.fix_bots then
-  local bots = {}
-  for _, e in pairs(data.raw["construction-robot"]) do
-    bots[e.name] = true
+local bots = {}
+for _, e in pairs(data.raw["construction-robot"]) do
+  bots[e.name] = true
+
+  if config.mine_bot_materials then
+    if data.raw["recipe"][e.name] and data.raw["recipe"][e.name].result == e.name then
+      e.minable.results = util.table.deepcopy(data.raw["recipe"][e.name].ingredients)
+      e.minable.result = nil
+    else
+      for _, r in pairs(data.raw["recipe"]) do
+        if r.result == e.name then
+          e.minable.results = util.table.deepcopy(r.ingredients)
+          e.minable.result = nil
+          break
+        end
+      end
+    end
   end
 
+  if config.unminable_bots then
+    e.minable = nil
+  end
+end
+
+if config.fix_bots then
   for _, e in pairs(data.raw["item"]) do
     if e.place_result and bots[e.place_result] then
       local r = false

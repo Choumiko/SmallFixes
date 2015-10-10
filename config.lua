@@ -2,13 +2,22 @@ config =
   {
     -- make construction bots not go to the quickbar
     fix_bots = true,
+    -- make bots unminable
+    unminable_bots = true,
+    -- mining bots returns the materials
+    mine_bot_materials = false,
+    
     -- change default request amount for requester chests/slots
-    fix_default_request_amount = true,
+    fix_default_request_amount = false,
     default_request_amount = 1,
 
     --add larger radar
-    radar_mk2 = true
+    radar_mk2 = false
   }
+
+if config.unminable_bots then
+  config.mine_bot_materials = false
+end
 
 function copyPrototype(type, name, newName)
   if not data.raw[type][name] then error("type "..type.." "..name.." doesn't exist", 2) end
