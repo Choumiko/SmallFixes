@@ -11,6 +11,11 @@ config =
     fix_default_request_amount = false,
     default_request_amount = 1,
 
+    -- Changes how many items are requested when copying from assembler to requester chest
+    -- (default is 2 times the amount of the ingredients)
+    fix_requester_paste_multiplier = false,
+    requester_paste_multiplier = 5,
+    
     --add larger radar
     radar_mk2 = false
   }

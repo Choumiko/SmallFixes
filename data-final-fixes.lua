@@ -51,3 +51,9 @@ if config.fix_default_request_amount then
     end
   end
 end
+
+if config.fix_requester_paste_multiplier then
+  for _, r in pairs(data.raw["recipe"]) do
+    r.requester_paste_multiplier = config.requester_paste_multiplier
+  end
+end

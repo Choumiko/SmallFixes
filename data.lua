@@ -16,6 +16,5 @@ if config.radar_mk2 then
   }
   r.enabled = false
   data:extend({e,r,i})
-  addRecipeUnlock("advanced-electronics", "radar-mk2")
-  
+  addRecipeUnlock("advanced-electronics", "radar-mk2")  
 end
