@@ -8,7 +8,7 @@ config =
     mine_bot_materials = false,
     
     -- change default request amount for requester chests/slots
-    fix_default_request_amount = false,
+    fix_default_request_amount = true,
     default_request_amount = 1,
 
     -- Changes how many items are requested when copying from assembler to requester chest
@@ -17,7 +17,7 @@ config =
     requester_paste_multiplier = 5,
     
     --add larger radar
-    radar_mk2 = false
+    radar_mk2 = true
   }
 
 if config.unminable_bots then
@@ -53,3 +53,5 @@ function addRecipeUnlock(tech, recipe)
     })
 
 end
+
+return config, copyPrototype, addRecipeUnlock

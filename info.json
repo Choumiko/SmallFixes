@@ -1,6 +1,6 @@
 {
   "name": "SmallFixes",
-  "version": "0.1.1",
+  "version": "{{VERSION}}",
   "title": "SmallFixes",
   "author": "Choumiko",
   "homepage": "",
