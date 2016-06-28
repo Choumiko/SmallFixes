@@ -42,16 +42,6 @@ if config.fix_bots then
   end
 end
 
-if config.fix_default_request_amount then
-  for name,list in pairs(data.raw) do
-    for index,item in pairs(list) do
-      if item.stack_size ~= nil then
-        item.default_request_amount = config.default_request_amount
-      end
-    end
-  end
-end
-
 if config.fix_requester_paste_multiplier then
   for _, r in pairs(data.raw["recipe"]) do
     r.requester_paste_multiplier = config.requester_paste_multiplier
