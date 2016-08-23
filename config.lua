@@ -2,16 +2,20 @@ config =
   {
     -- make construction bots not go to the quickbar, default on
     fix_bots = true,
-    -- make bots unminable, default on
+    -- make construction bots unminable, default on
     unminable_bots = true,
+    
+    -- make logistic bots unminable, default off
+    unminable_logistic_bots = false,
+    
     -- mining bots returns the materials, default off
     mine_bot_materials = false,
-    
+
     -- Changes how many items are requested when copying from assembler to requester chest
     -- (default is 2 times the amount of the ingredients), default off
     fix_requester_paste_multiplier = false,
     requester_paste_multiplier = 5,
-    
+
     --add larger radar, default off
     radar_mk2 = false
   }

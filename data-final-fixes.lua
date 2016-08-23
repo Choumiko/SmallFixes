@@ -1,27 +1,34 @@
 require "config"
 require "util"
 
+local types = {"construction-robot", "logistic-robot"}
 local bots = {}
-for _, e in pairs(data.raw["construction-robot"]) do
-  bots[e.name] = true
+for _, bot in pairs(types) do
+  for _, e in pairs(data.raw[bot]) do
+    bots[e.name] = true
 
-  if config.mine_bot_materials then
-    if data.raw["recipe"][e.name] and data.raw["recipe"][e.name].result == e.name then
-      e.minable.results = util.table.deepcopy(data.raw["recipe"][e.name].ingredients)
-      e.minable.result = nil
-    else
-      for _, r in pairs(data.raw["recipe"]) do
-        if r.result == e.name then
-          e.minable.results = util.table.deepcopy(r.ingredients)
-          e.minable.result = nil
-          break
+    if config.mine_bot_materials then
+      if data.raw["recipe"][e.name] and data.raw["recipe"][e.name].result == e.name then
+        e.minable.results = util.table.deepcopy(data.raw["recipe"][e.name].ingredients)
+        e.minable.result = nil
+      else
+        for _, r in pairs(data.raw["recipe"]) do
+          if r.result == e.name then
+            e.minable.results = util.table.deepcopy(r.ingredients)
+            e.minable.result = nil
+            break
+          end
         end
       end
     end
-  end
 
-  if config.unminable_bots then
-    e.minable = nil
+    if bot == "construction-robot" and config.unminable_bots then
+      e.minable = nil
+    end
+    
+    if bot == "logistic-robot" and config.unminable_logistic_bots then
+      e.minable = nil
+    end
   end
 end
 
