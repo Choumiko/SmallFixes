@@ -19,6 +19,10 @@ https://forums.factorio.com/viewtopic.php?f=91&t=16945
 
 ***
 ###Changelog
+1.0.0
+
+- version for Factorio 0.14.x
+
 0.1.22
 
 - added option to make logistic bots unminable (defaults to off)
